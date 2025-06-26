@@ -1,4 +1,6 @@
 #![cfg_attr(not(feature = "std"), no_std)]
+
+#[cfg(not(feature = "std"))]
 extern crate alloc;
 
 use ethereum::{AuthorizationListItem, AUTHORIZATION_MAGIC};
@@ -6,6 +8,11 @@ use ethereum_types::{Address, H256};
 use k256::ecdsa::{RecoveryId, Signature, VerifyingKey};
 use rlp::RlpStream;
 use sha3::{Digest, Keccak256};
+
+#[cfg(not(feature = "std"))]
+use alloc::vec;
+#[cfg(feature = "std")]
+use std::vec;
 
 /// Error type for EIP-7702 authorization signature recovery
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -60,7 +67,7 @@ impl Authorizer for &AuthorizationListItem {
     fn authorization_message_hash(&self) -> H256 {
         // EIP-7702 authorization message format:
         // MAGIC || rlp([chain_id, address, nonce])
-        let mut message = alloc::vec![AUTHORIZATION_MAGIC];
+        let mut message = vec![AUTHORIZATION_MAGIC];
 
         // RLP encode the authorization tuple
         let mut rlp_stream = RlpStream::new_list(3);

@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-ethereum = { version = "0.16.0" }
+ethereum = { version = "0.16.0", default-features = false }
 ethereum-types = { version = "0.15", default-features = false, features = [
     "rlp",
     "codec",
@@ -19,6 +19,7 @@ sha3 = { version = "0.10", default-features = false }
 [features]
 default = ["std"]
 std = [
+	"ethereum/std",
 	"ethereum-types/std",
 	"k256/std",
 	"rlp/std",
