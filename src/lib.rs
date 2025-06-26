@@ -1,6 +1,7 @@
+#![cfg_attr(not(feature = "std"), no_std)]
 extern crate alloc;
 
-use ethereum::{AUTHORIZATION_MAGIC, AuthorizationListItem};
+use ethereum::{AuthorizationListItem, AUTHORIZATION_MAGIC};
 use ethereum_types::{Address, H256};
 use k256::ecdsa::{RecoveryId, Signature, VerifyingKey};
 use rlp::RlpStream;
