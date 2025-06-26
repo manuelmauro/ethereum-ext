@@ -6,6 +6,7 @@ build:
 	cargo build --all-features
 	cargo build --no-default-features
 	cargo build --target wasm32-unknown-unknown --no-default-features
+	cargo build --target wasm32-unknown-unknown --all-features
 
 test:
 	cargo test --all-features
