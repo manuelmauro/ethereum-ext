@@ -15,3 +15,12 @@ k256 = { version = "0.13", default-features = false, features = [
 ] }
 rlp = { version = "0.6", default-features = false, features = ["derive"] }
 sha3 = { version = "0.10", default-features = false }
+
+[features]
+default = ["std"]
+std = [
+	"ethereum-types/std",
+	"k256/std",
+	"rlp/std",
+	"sha3/std",
+]
