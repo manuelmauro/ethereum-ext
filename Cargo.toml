@@ -26,3 +26,5 @@ sha3 = { version = "0.10", default-features = false }
 [features]
 default = ["std"]
 std = ["ethereum/std", "ethereum-types/std", "k256/std", "rlp/std", "sha3/std"]
+with-scale = ["ethereum/with-scale"]
+with-serde = ["ethereum/with-serde"]
