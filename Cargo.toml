@@ -2,6 +2,12 @@
 name = "ethereum-ext"
 version = "0.1.0"
 edition = "2021"
+authors = ["Manuel Mauro"]
+license = "MIT"
+description = "EIP-7702 authorization functionality for Ethereum"
+readme = "README.md"
+keywords = ["ethereum", "eip-7702", "authorization", "blockchain", "crypto"]
+categories = ["cryptography", "no-std", "authentication"]
 
 [dependencies]
 ethereum = { version = "0.16.0", default-features = false }
@@ -18,10 +24,4 @@ sha3 = { version = "0.10", default-features = false }
 
 [features]
 default = ["std"]
-std = [
-	"ethereum/std",
-	"ethereum-types/std",
-	"k256/std",
-	"rlp/std",
-	"sha3/std",
-]
+std = ["ethereum/std", "ethereum-types/std", "k256/std", "rlp/std", "sha3/std"]
